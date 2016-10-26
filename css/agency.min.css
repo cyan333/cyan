@@ -27,7 +27,8 @@ h4,
 h5,
 h6 {
 /*    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-    font-family: 'Overlock', cursive;
+/*    font-family: 'Overlock', cursive;*/
+    font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
     font-weight: 700
 }
@@ -63,6 +64,9 @@ a:hover {
 }
 .bg-light-gray {
     background-color: #eee
+}
+.bg-black {
+    background-color: #2f3744
 }
 .bg-darkest-gray {
     background-color: #222
@@ -284,9 +288,9 @@ section h2.section-heading {
     font-size: 40px;
     margin-top: 0;
     margin-bottom: 15px;
-    border-bottom-style: dotted;
-    border-width: thick;
-border-color: red;
+/*    border-bottom-style: double;*/
+/*    border-width: thin;*/
+/*    border-color: red;*/
 }
 section h3.section-subheading {
     font-size: 16px;
@@ -296,7 +300,7 @@ section h3.section-subheading {
 }
 @media (min-width: 768px) {
     section {
-        padding: 150px 0
+        padding: 100px 0
     }
 }
 .service-heading {
