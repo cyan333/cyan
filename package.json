@@ -1,8 +1,8 @@
 {
-  "name": "agency",
-  "title": "Agency",
+  "name": "clean-blog",
+  "title": "Clean Blog",
   "version": "3.3.7+1",
-  "homepage": "http://startbootstrap.com/template-overviews/agency",
+  "homepage": "http://startbootstrap.com/template-overviews/clean-blog",
   "author": "Start Bootstrap",
   "license": {
     "type": "MIT",
@@ -17,12 +17,11 @@
     "gulp-header": "^1.8.7",
     "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
     "gulp-uglify": "^1.5.4",
     "jquery": "^1.11.3"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/BlackrockDigital/startbootstrap-agency.git"
+    "url": "https://github.com/BlackrockDigital/startbootstrap-clean-blog.git"
   }
 }
