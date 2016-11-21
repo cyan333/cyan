@@ -4,19 +4,27 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
-a,
+
 body {
     color: #333
 }
+a {
+    color: #30a0cc
+}
 .navbar-custom .nav li a,
-.navbar-custom .navbar-brand,
+.navbar-custom .navbar-brand {
+    font-weight: 600;
+    font-size: 25px
+        
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-weight: 800
+    font-weight: 600
 }
 .caption,
 .intro-header .page-heading,
@@ -41,12 +49,31 @@ h5,
 h6 {
     font-family: 'Raleway', sans-serif;
 }
-p {
+
+h1.text-italic,
+h2.text-italic,
+h3.text-italic,
+h4.text-italic,
+h5.text-italic,
+h6.text-italic {
+    font-style: italic
+}
+
+p,
+ul{
     line-height: 1.5;
     margin: 30px 0
 }
+
+ol li{
+    padding-bottom: 5px
+}
+
+ol li.courseList{
+    padding-bottom: 10px;
+}
 p a {
-    text-decoration: underline
+    text-decoration: underline,
 }
 a:focus,
 a:hover {
@@ -66,6 +93,7 @@ hr.small {
     border-width: 4px;
     border-color: #fff
 }
+
 .navbar-custom {
     position: absolute;
     top: 0;
