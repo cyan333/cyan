@@ -4,13 +4,8 @@
 
 ## Creator
 
-This website was created by and is maintained by **[Cyan Xie](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
-
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
-
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://github.com/cyan333).
+This website was created by and is maintained by **[Cyan Xie](https://github.com/cyan333)
 
 ## Copyright and License
 
-Copyright 2016 (http://www.cyanxie.com/) license.
+Copyright 2016 [Cyan Xie](http://www.cyanxie.com/) license.
