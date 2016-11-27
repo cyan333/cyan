@@ -1,4 +1,4 @@
-# Cyan's Blog
+# Personal Website (Resume/Blog) --> Cyan's Blog
 
 [Welcom to my blog](http://www.cyanxie.com). This is my personal blog to list all my projects and my experience. Also, as a amateur photographer, I love to share my photos in the gallery of my blog. 
 
