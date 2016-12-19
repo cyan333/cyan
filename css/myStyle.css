@@ -15,7 +15,7 @@
 .img-xsm {
     display: block;
     margin: auto;
-    max-width: 40%;
+    max-width: 25%;
     height: auto;
 }
 
@@ -76,6 +76,7 @@ h2.padding {
     z-index:1032;
 }
 
+h3.projecth3,
 h4.projecth4 {
     padding-top: 20px;
     color: #2c97c1;
