@@ -104,7 +104,7 @@
                 <div class="col-lg-10 col-md-10 col-md-offset-1">
                     <!--Open Window Sensor-->
                     <h1>
-                        Smart BMS 
+                        Smart BMS - BLE Development
                     </h1>
                     <hr class="bodyheaderline">
                     <h4 class="text-italic">
@@ -115,21 +115,21 @@
                     </h3>
                     <p>
                         Developing a Android and IOS app to communication with Bluetooth LE to read to information from the Battery Management System (BMS)
-                        on the Battery. 
+                        on the Battery. This app can be used in other bluetooth applications. 
                     </p>
                     <h3>
                         Project Progress:
                     </h3>
                     
-                    <h3 class="projecth3">
+                    <h4 class="projecth4">
                         [ 2016.12.17 ] Update: 
-                    </h3>
+                    </h4>
                     
                     <h4 class="projecth4">
                     (Writing this update in JFK airport. All flights are delayed because of the snow! So I decided to start coding so that I can calm down and stop missing home.)
                     </h4>
                     <p>
-                    Here is a list of my update of my app recently.
+                    Here is a list of my recently updates.
                     </p>
                     <ul>
                         <li>
@@ -199,68 +199,49 @@
                     
                     
                     <h4 class="projecth4">
+                        <a data-toggle="collapse" href="#navigation" aria-expanded="false">
                         [ 2016.11.29 ] Update:
+                        </a>
                     </h4>
-                    
-                    <p class="projectBLE">
-                        Completed navigation tab.
-                    </p>
-                    
-                    <img class="img-md" src="img/project/BLE_tab_gif.gif" alt="Battery Status Screen Capture">
-                    <figcaption class="text-center caption">Battery Status Screen Capture</figcaption>
-                    
+                    <div class="collapse" id="navigation">
+                        <p class="projectBLE">
+
+                            Completed navigation tab.
+                        </p>
+
+                        <img class="img-md" src="img/project/BLE_tab_gif.gif" alt="Battery Status Screen Capture">
+                        <figcaption class="text-center caption">Battery Status Screen Capture</figcaption>
+                    </div>
                     <!-- 2016.11.25 -->
                     <h4 class="projecth4">
+                        <a data-toggle="collapse" href="#scan" aria-expanded="false">
                         [ 2016.11.25 ] Update:
+                        </a>
                     </h4>
-                    <p class="projectBLE">
-                        Completed scanning, connecting, reading and writing to BLE device.
-                    </p>
-                    <figure>
-                        <img class="img-md" src="img/project/BLE_screen.gif" alt="Smart BMS Screen GIF">
-                        <figcaption class="text-center caption">Smart BMS Screen GIF</figcaption>
-                    </figure>
-                    <p>
-                        Succeffully turned on and turned off LED. This is to simulate the writing process. Will upgrade the functionality in the future.
-                    </p>
-                    <figure>
-                        <img class="img-md" src="img/project/BLE_1.gif" alt="Smart BMS Demo">
-                        <figcaption class="text-center caption">Smart BMS Turn On/Off LED Demo</figcaption>
-                    </figure>
-                    <p>
-                        The app will connect autometically when users reopen the app. If the app does not find the device, the app will pop up alert 
-                        dialog and shows error. 
-                    </p>
-                    <figure>
-                        <img class="img-xsm" src="img/project/BLE_screen.png" alt="Smart BMS Screen">
-                        <figcaption class="text-center caption">Pop Out Alert Dialog With Error</figcaption>
-                    </figure>
-                    <h4 class="projecth4">
-                        Next Step
-                    </h4>
-                    <p class="projectBLE">
-                        Complete UI design and enhance the performance.
-                    </p>
-                    
-                    
-                    
-                    
-<!--                    <ul>-->
-<!--
-                        <li>Conducted Market Research, customer requirements, product requirements and product specification. </li>
-                        <li>Generated 3D product concept drawing using AutoCAD.</li>
-                        <img class="img-md" src="img/project_ows1.png" alt="Produt Concept">
-                        <li>Drew the schematic diagram and implemented the circuit into a circuit board.</li>
-                        <li>Presented the product with teammates in the WPI Collaborative for Entrepreneurship & Innovation (CEI) competition and placed 2nd in the competition</li>
--->
-<!--                    </ul>-->
-<!--
-                    <figure>
-                        <img class="img-md" src="img/project_ows2.png" alt="Team Picture">
-                        <figcaption class="text-center caption">Team Picture with Prof. Mazumder</figcaption>
-                    </figure>
--->
-                    
+                    <div class="collapse" id="scan">
+                        <p class="projectBLE">
+                            Completed scanning, connecting, reading and writing to BLE device.
+                        </p>
+                        <figure>
+                            <img class="img-md" src="img/project/BLE_screen.gif" alt="Smart BMS Screen GIF">
+                            <figcaption class="text-center caption">Smart BMS Screen GIF</figcaption>
+                        </figure>
+                        <p>
+                            Succeffully turned on and turned off LED. This is to simulate the writing process. Will upgrade the functionality in the future.
+                        </p>
+                        <figure>
+                            <img class="img-md" src="img/project/BLE_1.gif" alt="Smart BMS Demo">
+                            <figcaption class="text-center caption">Smart BMS Turn On/Off LED Demo</figcaption>
+                        </figure>
+                        <p>
+                            The app will connect autometically when users reopen the app. If the app does not find the device, the app will pop up alert 
+                            dialog and shows error. 
+                        </p>
+                        <figure>
+                            <img class="img-xsm" src="img/project/BLE_screen.png" alt="Smart BMS Screen">
+                            <figcaption class="text-center caption">Pop Out Alert Dialog With Error</figcaption>
+                        </figure>
+                    </div>
                     
                     <!--Open Window Sensor-->
                     <h1>
@@ -347,6 +328,49 @@
                         <li>Designed Serial Peripheral Interfaces to various sensors including ADC and DAC.</li>
                         <li>Verilog for Logic Synthesis, Testing, and Simulation. </li>
                     </ul>
+                    <h3>
+                        Project Example
+                    </h3>
+                    <h4 class="projecth4">
+                        ADSR
+                    </h4>
+                    <p>
+                        For the ADSR, we created a multiplexer to generate a vary output depending on the envelope value. In the first 100ms, envelope is going up to the maximum amplitude. In the next 100ms, envelope is going down to 50% of the maximum amplitude. After these 200ms, we sustain the waveform as long as the pushbutton is pressed. After the push button is released, the waveform starts to release. 
+                    </p>
+                    <figure>
+                        <img class="img-md" src="img/project/adsr.png" alt="Team Picture">
+                        <figcaption class="text-center caption">ADSR Signals Waveform </figcaption>
+                    </figure>
+                    Figure below shows one of the simulation verification of the this project. To speed up the simulation time, we modified the time in the code.
+                    <figure>
+                        <img src="img/project/adsr_sim.png" alt="Team Picture">
+                        <figcaption class="text-center caption">Simulation: Envelope Verification</figcaption>
+                    </figure>
+                    <h4 class="projecth4">
+                        Character Control - Moving block around
+                    </h4>
+                    <p>
+                        We are able to move the character around by pressing “w” (up), “s” (down), “a” (left), “d” (right). This is defined in the SDK, using c programming language. Figure below shows x and y coordinate in terminal, screen and 7 segments display. 
+                    </p>
+                    <figure>
+                        <img class="img-sm" src="img/project/lab4_1.png" alt="Team Picture">
+                        <figcaption class="text-center caption">Moving Character to (0, 0) </figcaption>
+                    </figure>
+                    <figure>
+                        <img class="img-md" src="img/project/0_0.png" alt="Team Picture">
+                        <figcaption class="text-center caption">Result of Moving "x" to (0,0)</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="img-sm" src="img/project/display0_0.png" alt="Team Picture">
+                        <figcaption class="text-center caption">x and y Coordinate Displayed in 7 segments</figcaption>
+                    </figure>
+                    <p>
+                        By using some simple if and else statements to detect x and y position in SDK, we are also able to wrap the character block from top to bottom, from bottom to top, from left to right and from right to left.
+                    </p>
+                    <figure>
+                        <img class="img-sm" src="img/project/warpmove.png" alt="Team Picture">
+                        <figcaption class="text-center caption">Wrapping Character Block Around</figcaption>
+                    </figure>
                 </div>
             </div>
         </div>
