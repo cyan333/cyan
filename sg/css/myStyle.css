@@ -1,0 +1,5 @@
+.scorllabe-list {
+    height: auto;
+    max-height: 800px;
+    overflow-x:auto;
+}
