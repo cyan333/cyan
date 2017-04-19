@@ -3,3 +3,11 @@
     max-height: 800px;
     overflow-x:auto;
 }
+
+div.cellphone {
+    position: relative;
+    width: 414px;
+    height: 736px;
+    left: 120px;
+    border: 3px solid #73AD21;
+}
