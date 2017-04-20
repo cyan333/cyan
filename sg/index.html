@@ -58,34 +58,59 @@
 //                }
 //            }
             
-            var imagestartindex;
-            var imageendindex;
+            var imageDivStart = "<div class=\"row\"><div class=\"col-lg-12\">"
+            var imageDivEnd = "</div></div>"
+            var output = "";
+            var imageStartIndex;
+            var imageEndIndex = 0;
             var imageindex = 0;
             var image;
+            var findimage;
             
-            while (imagestartindex != -1){
-                //content = content.replace(/\r?\n|\r/g,"");
-                //alert(content);
-                imagestartindex = content.indexOf("<img");
-                alert(imagestartindex);
-                if (imagestartindex == -1){
-                    break;
+            while (imageStartIndex != -1){
+                
+                imageStartIndex = content.indexOf("<img");
+                alert(imageStartIndex);
+                if(imageStartIndex == -1){
+                    output = output + content;
+                    break
                 }
-                content = content.substring(imagestartindex, content.length);
                 
-                imageendindex = content.indexOf(">");
+                findimage = content.substring(imageStartIndex, content.length);
+                imageEndIndex = findimage.indexOf("/>");
                 
-                image = content.substring(0, (imageendindex+1));
+                image = findimage.substring(0, (imageEndIndex+2));
                 alert(image);
-                content = content.substring(imageendindex+1, content.length);
+                output = output + content.substring(0, imageStartIndex) + imageDivStart + image + imageDivEnd;
+                alert(output);
+                content = findimage.substring(imageEndIndex+2, content.length);
                 
-//                imageindex++;
+//                imageStartIndex = content.indexOf("<img");
+//                alert(imageStartIndex);
+//                if (imageStartIndex == -1){
+//                    break;
+//                }
+//                
+//                outputString = content.substring(imageEndIndex,imageStartIndex);
+//                
+//                content = content.substring(imageStartIndex, content.length);
+//                
+//                imageEndIndex = content.indexOf("/>");
+//                
+//                image = content.substring(0, (imageEndIndex+2));
+//                alert(image);
+//                content = content.substring(imageEndIndex+1, content.length);
+//                
+//                outputString = outputString + imageDivStart + image + imageDivEnd;
+//                alert(outputString);
             }
-//            var imagestartindex = content.indexOf("<img");
+            
+            
+//            var imageStartIndex = content.indexOf("<img");
 //            var imageendinex = content.indexOf(">");
-//            var image = content.substring(imagestartindex, (imageendinex+1));
+//            var image = content.substring(imageStartIndex, (imageendinex+1));
 //            for(var i = 0; i < image.length; i++){
-//                document.getElementById("simulator").innerHTML = title + image[i]; 
+                document.getElementById("simulator").innerHTML = title + output; 
 //            }
             
             event.preventDefault()
@@ -206,14 +231,13 @@
               <div class="form-group">
                 <label for="content">Content</label>
                 <textarea class="form-control" id="content" rows="30">
-                  <div class="row">
-                        <div class="col-lg-6">
-                        <img src="gallery-bg.jpg" width="150px" height="150px">
+                  
+                        <img src="gallery-bg.jpg" width="150px" height="150px"/>
                         </div>
+                    </div>
                         <div class="col-lg-6">
                         <h1 style = "word-wrap: break-word">dddddddddddddddddddddddddddddddddddddddddddddddddddddd</h1>
                         </div>
-                    </div>
                   </textarea>
               </div>
                 
