@@ -46,10 +46,48 @@
            var title = document.getElementById("title").value;
             var content = document.getElementById("content").value;
             
-            var position = str.search("<img");
-            content.insert(position, 'hiddddd');
-            console.log(position);
-            //document.getElementById("simulator").innerHTML = title + ; 
+//            var preimage = content.split("<img");
+//            var imageindex;
+//            var images;
+                        
+//            for(var i=0; i < preimage.length; i++){
+//                var indexofending = preimage[i].indexOf(">");
+//                if(indexofending != -1){
+//                    
+//                    images[imageindex] = preimage.split(">");
+//                }
+//            }
+            
+            var imagestartindex;
+            var imageendindex;
+            var imageindex = 0;
+            var image;
+            
+            while (imagestartindex != -1){
+                //content = content.replace(/\r?\n|\r/g,"");
+                //alert(content);
+                imagestartindex = content.indexOf("<img");
+                alert(imagestartindex);
+                if (imagestartindex == -1){
+                    break;
+                }
+                content = content.substring(imagestartindex, content.length);
+                
+                imageendindex = content.indexOf(">");
+                
+                image = content.substring(0, (imageendindex+1));
+                alert(image);
+                content = content.substring(imageendindex+1, content.length);
+                
+//                imageindex++;
+            }
+//            var imagestartindex = content.indexOf("<img");
+//            var imageendinex = content.indexOf(">");
+//            var image = content.substring(imagestartindex, (imageendinex+1));
+//            for(var i = 0; i < image.length; i++){
+//                document.getElementById("simulator").innerHTML = title + image[i]; 
+//            }
+            
             event.preventDefault()
         }
 
