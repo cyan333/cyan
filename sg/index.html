@@ -46,6 +46,54 @@
            var title = document.getElementById("title").value;
             var content = document.getElementById("content").value;
             
+            var imageDivStart = "<div class=\"row\"><div class=\"col-lg-12\">"
+            var imageDivEnd = "</div></div>"
+            var txtimgDivStart = "<div class=\"row\"><div class=\"col-lg-6\">"
+            //var r = /(<img.+?\/>)|(<imgtxt.+?<\/imgtxt>)/g;
+            var imgReplace = /(<img.+?\/>)/g;
+            //var imgEndReplace = /\/>/g;
+            var txtimgReplace = /<txtimg.+?<\/txtimg>/g;
+            var txtInImg;
+            var txtInImgReplace = />.+?</g;
+            var output = content;
+            
+            imgMatches = content.match(imgReplace);
+           
+            if(imgMatches != null ){
+                for (var i = 0; i<imgMatches.length; i++){
+                output = output.replace(imgReplace, imageDivStart+imgMatches[i]+imageDivEnd);
+                }
+            }
+            
+            
+            txtimgMatches = content.match(txtimgReplace);
+            if(txtimgMatches != null ){
+                for (var i = 0; i<txtimgMatches.length; i++){
+                    txtInImg = txtimgMatches[i].match(txtInImgReplace);
+                    txtInImg = txtInImg[0].substring(1, txtInImg[0].length-1);
+                    txtimgMatches[i] = txtimgMatches[i].replace(/>.+>/g, "</img>");
+                    txtimgMatches[i] = txtimgMatches[i].replace(/txtimg/g, "img");
+                    //alert(txtInImg);
+                    output = output.replace(txtimgReplace, 
+                                            "<div class=\"row\"><div class=\"col-lg-6 vcenter\">"
+                                            +txtimgMatches[i]
+                                            +"</div>"+"<div class=\"col-lg-6 vcenter\">"
+                                            +txtInImg
+                                            +"</div></div>");
+                }
+            }
+            alert(output);
+            document.getElementById("simulator").innerHTML = title + "<br>" +output; 
+            
+            //
+            //output = content.replace(imgReplace,imageDivStart+"<img");
+            //output = output.replace(imgEndReplace, "/>"+imageDivEnd);
+            //output = content.match(r);
+            
+            //alert(changedimgtxt);
+            //alert(content);
+            
+            
 //            var preimage = content.split("<img");
 //            var imageindex;
 //            var images;
@@ -58,32 +106,32 @@
 //                }
 //            }
             
-            var imageDivStart = "<div class=\"row\"><div class=\"col-lg-12\">"
-            var imageDivEnd = "</div></div>"
-            var output = "";
-            var imageStartIndex;
-            var imageEndIndex = 0;
-            var imageindex = 0;
-            var image;
-            var findimage;
+//            var imageDivStart = "<div class=\"row\"><div class=\"col-lg-12\">"
+//            var imageDivEnd = "</div></div>"
+//            var output = "";
+//            var imageStartIndex;
+//            var imageEndIndex = 0;
+//            var imageindex = 0;
+//            var image;
+//            var findimage;
             
-            while (imageStartIndex != -1){
+//            while (imageStartIndex != -1){
                 
-                imageStartIndex = content.indexOf("<img");
-                alert(imageStartIndex);
-                if(imageStartIndex == -1){
-                    output = output + content;
-                    break
-                }
-                
-                findimage = content.substring(imageStartIndex, content.length);
-                imageEndIndex = findimage.indexOf("/>");
-                
-                image = findimage.substring(0, (imageEndIndex+2));
-                alert(image);
-                output = output + content.substring(0, imageStartIndex) + imageDivStart + image + imageDivEnd;
-                alert(output);
-                content = findimage.substring(imageEndIndex+2, content.length);
+//                imageStartIndex = content.indexOf("<img");
+//                alert(imageStartIndex);
+//                if(imageStartIndex == -1){
+//                    output = output + content;
+//                    break
+//                }
+//                
+//                findimage = content.substring(imageStartIndex, content.length);
+//                imageEndIndex = findimage.indexOf("/>");
+//                
+//                image = findimage.substring(0, (imageEndIndex+2));
+//                alert(image);
+//                output = output + content.substring(0, imageStartIndex) + imageDivStart + image + imageDivEnd;
+//                alert(output);
+//                content = findimage.substring(imageEndIndex+2, content.length);
                 
 //                imageStartIndex = content.indexOf("<img");
 //                alert(imageStartIndex);
@@ -103,14 +151,14 @@
 //                
 //                outputString = outputString + imageDivStart + image + imageDivEnd;
 //                alert(outputString);
-            }
+            //}
             
             
 //            var imageStartIndex = content.indexOf("<img");
 //            var imageendinex = content.indexOf(">");
 //            var image = content.substring(imageStartIndex, (imageendinex+1));
 //            for(var i = 0; i < image.length; i++){
-                document.getElementById("simulator").innerHTML = title + output; 
+                //document.getElementById("simulator").innerHTML = title + output; 
 //            }
             
             event.preventDefault()
@@ -232,12 +280,12 @@
                 <label for="content">Content</label>
                 <textarea class="form-control" id="content" rows="30">
                   
+                        <img src="gallery-bg.jpg" width="400px" height="400px"/>
+                        SJIDOAGJSIDJGASDGA
                         <img src="gallery-bg.jpg" width="150px" height="150px"/>
-                        </div>
-                    </div>
-                        <div class="col-lg-6">
-                        <h1 style = "word-wrap: break-word">dddddddddddddddddddddddddddddddddddddddddddddddddddddd</h1>
-                        </div>
+                        hihaiohoasdkgqwieojweiEF
+                        <txtimg src="gallery-bg.jpg" width="150px" height="150px"> hihihihihi </txtimg>
+                        
                   </textarea>
               </div>
                 
@@ -256,7 +304,7 @@
             
              
             <div class="col-lg-5 col-md-5">
-                <div class="cellphone" id="simulator">
+                <div class="cellphone scorllabe-list" id="simulator">
                     
                 </div>
             </div>
