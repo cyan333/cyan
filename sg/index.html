@@ -27,11 +27,17 @@
             });
 
             $.getJSON('http://whateverorigin.org/get?url=' + 
-                encodeURIComponent('http://fmning.com:8080/projectNing/get_sg?menuId=1') + '&callback=?',
+                encodeURIComponent('http://fmning.com:8080/projectNing/get_sg?menuId='+id) + '&callback=?',
                 function (data) {
                     var t = JSON.parse(data.contents);
-                    alert(t['error']);
-                    console.log("> ", data.contents);
+                    if ( t['error'] == "" ){
+                        document.getElementById("title").innerHTML = t['title'];
+                        document.getElementById("content").innerHTML = t['content'];
+                    }
+                    else {
+                        alert(t['error']);
+                    }
+                    //console.log("> ", data.contents);
 
                     //If the expected response is text/plain
                     //$("#viewer").html(data.contents);
@@ -45,16 +51,16 @@
         function post(event) {
            var title = document.getElementById("title").value;
             var content = document.getElementById("content").value;
-            
+            content = content.replace(/\n/g , "");
             var imageDivStart = "<div class=\"row\"><div class=\"col-lg-12\">"
             var imageDivEnd = "</div></div>"
+            
             var txtimgDivStart = "<div class=\"row\"><div class=\"col-lg-6\">"
             //var r = /(<img.+?\/>)|(<imgtxt.+?<\/imgtxt>)/g;
             var imgReplace = /(<img.+?\/>)/g;
             //var imgEndReplace = /\/>/g;
             var txtimgReplace = /<txtimg.+?<\/txtimg>/g;
             var txtInImg;
-            var txtInImgReplace = />.+?</g;
             var output = content;
             
             imgMatches = content.match(imgReplace);
@@ -67,99 +73,35 @@
             
             
             txtimgMatches = content.match(txtimgReplace);
+            
             if(txtimgMatches != null ){
                 for (var i = 0; i<txtimgMatches.length; i++){
-                    txtInImg = txtimgMatches[i].match(txtInImgReplace);
-                    txtInImg = txtInImg[0].substring(1, txtInImg[0].length-1);
-                    txtimgMatches[i] = txtimgMatches[i].replace(/>.+>/g, "</img>");
+                    //find text
+                    var textEndIndex;
+                    var textEndIndex;
+                    var oldtxtimgMatches = txtimgMatches[i];
+                    textStartIndex = txtimgMatches[i].indexOf(">");
+                    textEndIndex = txtimgMatches[i].indexOf("</txtimg>");
+                    txtInImg = txtimgMatches[i].substring(textStartIndex+1, textEndIndex);
+                    
+                    //find textimage tab and replace it to <img></img>
+                    txtimgMatches[i] = txtimgMatches[i].replace(/>.+>/g, "></img>");
                     txtimgMatches[i] = txtimgMatches[i].replace(/txtimg/g, "img");
+                    
+                    //replace width to 100%
+                    txtimgMatches[i] = txtimgMatches[i].replace(/width\s?=\s?".+?"/g, "width=100%");
+                    
                     //alert(txtInImg);
-                    output = output.replace(txtimgReplace, 
-                                            "<div class=\"row\"><div class=\"col-lg-6 vcenter\">"
+                    output = output.replace(oldtxtimgMatches, 
+                                            "<div class=\"row\"><div class=\"col-lg-6 col-sm-6 vcenter\"><div style='height: 230px; width: 230px'>"
                                             +txtimgMatches[i]
-                                            +"</div>"+"<div class=\"col-lg-6 vcenter\">"
+                                            +"</div></div>"+"<div class=\"col-lg-5 col-sm-5 vcenter\"><div style=\"margin-left:30px\">"
                                             +txtInImg
-                                            +"</div></div>");
+                                            +"</div></div></div>");
                 }
             }
             alert(output);
             document.getElementById("simulator").innerHTML = title + "<br>" +output; 
-            
-            //
-            //output = content.replace(imgReplace,imageDivStart+"<img");
-            //output = output.replace(imgEndReplace, "/>"+imageDivEnd);
-            //output = content.match(r);
-            
-            //alert(changedimgtxt);
-            //alert(content);
-            
-            
-//            var preimage = content.split("<img");
-//            var imageindex;
-//            var images;
-                        
-//            for(var i=0; i < preimage.length; i++){
-//                var indexofending = preimage[i].indexOf(">");
-//                if(indexofending != -1){
-//                    
-//                    images[imageindex] = preimage.split(">");
-//                }
-//            }
-            
-//            var imageDivStart = "<div class=\"row\"><div class=\"col-lg-12\">"
-//            var imageDivEnd = "</div></div>"
-//            var output = "";
-//            var imageStartIndex;
-//            var imageEndIndex = 0;
-//            var imageindex = 0;
-//            var image;
-//            var findimage;
-            
-//            while (imageStartIndex != -1){
-                
-//                imageStartIndex = content.indexOf("<img");
-//                alert(imageStartIndex);
-//                if(imageStartIndex == -1){
-//                    output = output + content;
-//                    break
-//                }
-//                
-//                findimage = content.substring(imageStartIndex, content.length);
-//                imageEndIndex = findimage.indexOf("/>");
-//                
-//                image = findimage.substring(0, (imageEndIndex+2));
-//                alert(image);
-//                output = output + content.substring(0, imageStartIndex) + imageDivStart + image + imageDivEnd;
-//                alert(output);
-//                content = findimage.substring(imageEndIndex+2, content.length);
-                
-//                imageStartIndex = content.indexOf("<img");
-//                alert(imageStartIndex);
-//                if (imageStartIndex == -1){
-//                    break;
-//                }
-//                
-//                outputString = content.substring(imageEndIndex,imageStartIndex);
-//                
-//                content = content.substring(imageStartIndex, content.length);
-//                
-//                imageEndIndex = content.indexOf("/>");
-//                
-//                image = content.substring(0, (imageEndIndex+2));
-//                alert(image);
-//                content = content.substring(imageEndIndex+1, content.length);
-//                
-//                outputString = outputString + imageDivStart + image + imageDivEnd;
-//                alert(outputString);
-            //}
-            
-            
-//            var imageStartIndex = content.indexOf("<img");
-//            var imageendinex = content.indexOf(">");
-//            var image = content.substring(imageStartIndex, (imageendinex+1));
-//            for(var i = 0; i < image.length; i++){
-                //document.getElementById("simulator").innerHTML = title + output; 
-//            }
             
             event.preventDefault()
         }
@@ -280,11 +222,19 @@
                 <label for="content">Content</label>
                 <textarea class="form-control" id="content" rows="30">
                   
-                        <img src="gallery-bg.jpg" width="400px" height="400px"/>
-                        SJIDOAGJSIDJGASDGA
-                        <img src="gallery-bg.jpg" width="150px" height="150px"/>
-                        hihaiohoasdkgqwieojweiEF
-                        <txtimg src="gallery-bg.jpg" width="150px" height="150px"> hihihihihi </txtimg>
+
+                        <txtimg src="1_1.jpg" height="250" width="250">
+
+<span style="font-size:14px;font-weight:bold;">President</span><br>陆安琪 Anqi Lu<br>alu@wpi.edu<br>Computer Science & Mathematical Science '18
+
+</txtimg>
+
+<txtimg src="1_2.jpg" height="250" width="250"><span style="font-size:14px;font-weight:bold;">Vice President</span><br>周梓雨 Ziyu Zhou<br>zzhou2@wpi.edu<br>Management Information System '17</txtimg>
+
+<txtimg src="1_3.jpg" height="250" width="250"><span style="font-size:14px;font-weight:bold;">Treasurer</span><br>刘嘉成 Jason Liu<br>jliu4@wpi.edu<br>Mechanical Engineering '18</txtimg>
+
+                    
+                    
                         
                   </textarea>
               </div>
@@ -306,6 +256,20 @@
             <div class="col-lg-5 col-md-5">
                 <div class="cellphone scorllabe-list" id="simulator">
                     
+<!--
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 vcenter">
+                        <div style='height: 230px; width: 230px'>
+                        <img height='100%' width='100%' src='http://www.sherkspear.com/wp-content/uploads/2015/04/jsfiddle.png'/> 
+                        </div>
+                    </div>
+                        <div class="col-lg-5 col-sm-5 vcenter">
+                            <div style="margin-left:11px">
+                            <span style="font-size:14px;font-weight:bold;">President</span><br>陆安琪 Anqi Lu<br>alu@wpi.edu<br>Computer Science & Mathematical Science '18
+                            </div>
+                        </div>
+                    </div>
+-->
                 </div>
             </div>
         </div> 

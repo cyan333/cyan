@@ -17,3 +17,8 @@ div.cellphone {
     vertical-align: middle;
     float: none;
 }
+
+.portrait {
+    height: 50%;
+    width: 50%;
+}
