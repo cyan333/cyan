@@ -22,3 +22,10 @@ div.cellphone {
     height: 50%;
     width: 50%;
 }
+
+.line {
+  vertical-align: middle;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid grey;
+}

@@ -37,13 +37,6 @@
                     else {
                         alert(t['error']);
                     }
-                    //console.log("> ", data.contents);
-
-                    //If the expected response is text/plain
-                    //$("#viewer").html(data.contents);
-
-                    //If the expected response is JSON
-                    //var response = $.parseJSON(data.contents);
             });
            
         }
@@ -57,22 +50,25 @@
             
             var txtimgDivStart = "<div class=\"row\"><div class=\"col-lg-6\">"
             //var r = /(<img.+?\/>)|(<imgtxt.+?<\/imgtxt>)/g;
-            var imgReplace = /(<img.+?\/>)/g;
+            var imgRegular = /(<img.+?\/>)/g;
             //var imgEndReplace = /\/>/g;
-            var txtimgReplace = /<txtimg.+?<\/txtimg>/g;
+            var txtimgRegular = /<txtimg.+?<\/txtimg>/g;
+            var tableRegular = /<tab>\s?.+?\s?<\/tab>/g;
             var txtInImg;
+            
             var output = content;
             
-            imgMatches = content.match(imgReplace);
+            //find image only content
+            var imgMatches = content.match(imgRegular);
            
             if(imgMatches != null ){
                 for (var i = 0; i<imgMatches.length; i++){
-                output = output.replace(imgReplace, imageDivStart+imgMatches[i]+imageDivEnd);
+                output = output.replace(imgRegular, imageDivStart+imgMatches[i]+imageDivEnd);
                 }
             }
             
             
-            txtimgMatches = content.match(txtimgReplace);
+            var txtimgMatches = content.match(txtimgRegular);
             
             if(txtimgMatches != null ){
                 for (var i = 0; i<txtimgMatches.length; i++){
@@ -100,6 +96,20 @@
                                             +"</div></div></div>");
                 }
             }
+            
+            var tableMatches = content.match(tableRegular);
+            
+            if(tableMatches != null){
+                for(var i = 0; i<tableMatches.length; i++){
+                    
+                    var oldTableContent = tableMatches[i];
+                    tableMatches[i] = tableMatches[i].replace(/<tab>|<\/tab>/g, "");
+                    tableMatches[i] = tableMatches[i].replace(/<tbr>/g, "<div class=\"line\"></div>");
+                    
+                    output = output.replace(oldTableContent, tableMatches[i]);
+                }
+            }
+            
             alert(output);
             document.getElementById("simulator").innerHTML = title + "<br>" +output; 
             
@@ -221,21 +231,10 @@
               <div class="form-group">
                 <label for="content">Content</label>
                 <textarea class="form-control" id="content" rows="30">
-                  
 
-                        <txtimg src="1_1.jpg" height="250" width="250">
+                    <tab><b>学校主页</b><br>http://www.wpi.edu<tbr><b>WPI校园地图</b><br>http://www.wpi.edu/about/visitors/campusmap.html<tbr><b>学年日历</b><br>http://www.wpi.edu/calendars/index.html<tbr><b>MyWPI</b></tab>
 
-<span style="font-size:14px;font-weight:bold;">President</span><br>陆安琪 Anqi Lu<br>alu@wpi.edu<br>Computer Science & Mathematical Science '18
-
-</txtimg>
-
-<txtimg src="1_2.jpg" height="250" width="250"><span style="font-size:14px;font-weight:bold;">Vice President</span><br>周梓雨 Ziyu Zhou<br>zzhou2@wpi.edu<br>Management Information System '17</txtimg>
-
-<txtimg src="1_3.jpg" height="250" width="250"><span style="font-size:14px;font-weight:bold;">Treasurer</span><br>刘嘉成 Jason Liu<br>jliu4@wpi.edu<br>Mechanical Engineering '18</txtimg>
-
-                    
-                    
-                        
+                              
                   </textarea>
               </div>
                 
@@ -255,21 +254,12 @@
              
             <div class="col-lg-5 col-md-5">
                 <div class="cellphone scorllabe-list" id="simulator">
-                    
-<!--
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6 vcenter">
-                        <div style='height: 230px; width: 230px'>
-                        <img height='100%' width='100%' src='http://www.sherkspear.com/wp-content/uploads/2015/04/jsfiddle.png'/> 
-                        </div>
-                    </div>
-                        <div class="col-lg-5 col-sm-5 vcenter">
-                            <div style="margin-left:11px">
-                            <span style="font-size:14px;font-weight:bold;">President</span><br>陆安琪 Anqi Lu<br>alu@wpi.edu<br>Computer Science & Mathematical Science '18
-                            </div>
-                        </div>
-                    </div>
--->
+                    <b>学校主页</b>
+                    <br>http://www.wpi.edu
+                    <div class="line"></div>
+                    <b>WPI校园地图</b>
+                    <br>http://www.wpi.edu/about/visitors/campusmap.html
+
                 </div>
             </div>
         </div> 
