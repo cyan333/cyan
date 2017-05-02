@@ -8,7 +8,7 @@ div.cellphone {
     position: relative;
     width: 414px;
     height: 736px;
-    left: 120px;
+    margin-left: 10px;
     border: 3px solid #73AD21;
 }
 

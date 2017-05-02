@@ -21,23 +21,42 @@
       <script>
         function getArticle(id) {
             
-            $.ajaxSetup({
-            scriptCharset: "utf-8", //or "ISO-8859-1"
-            contentType: "application/json; charset=utf-8"
-            });
-
-            $.getJSON('http://whateverorigin.org/get?url=' + 
-                encodeURIComponent('http://fmning.com:8080/projectNing/get_sg?menuId='+id) + '&callback=?',
-                function (data) {
-                    var t = JSON.parse(data.contents);
-                    if ( t['error'] == "" ){
-                        document.getElementById("title").innerHTML = t['title'];
-                        document.getElementById("content").innerHTML = t['content'];
+//            $.ajaxSetup({
+//            scriptCharset: "utf-8", //or "ISO-8859-1"
+//            contentType: "application/json; charset=utf-8"
+//            });
+//
+//            $.getJSON('http://whateverorigin.org/get?url=' + 
+//                encodeURIComponent('http://fmning.com:8080/projectNing/get_sg?menuId='+id) + '&callback=?',
+//                function (data) {
+//                    var t = JSON.parse(data.contents);
+//                    if ( t['error'] == "" ){
+//                        document.getElementById("title").innerHTML = t['title'];
+//                        document.getElementById("content").innerHTML = t['content'];
+//                    }
+//                    else {
+//                        alert(t['error']);
+//                    }
+//            });
+            
+            $.ajax({
+           url: 'https://crossorigin.me/http://fmning.com:8080/WebApp/get_sg?menuId=' + id,
+           type: 'GET',
+           async: true,
+           success: function(data) {
+                    if ( data['error'] == "" ){
+                        document.getElementById("title").innerHTML = data['title'];
+                        document.getElementById("content").innerHTML = data['content'];
                     }
                     else {
-                        alert(t['error']);
+                        alert(data['error']);
                     }
-            });
+           },
+           error: function(xhr, status, error) {
+            alert(xhr.responseText);
+           //$btn.button('reset');
+}
+           });
            
         }
           
@@ -125,7 +144,7 @@
     <br>
     <div class="fluid-container">
         <div class="row">
-            <div class="col-lg-2 col-md-2">
+            <div class="col-lg-2 col-md-2 col-sm-4">
             
             <div class="list-group scorllabe-list">
                 <button type="button" class="list-group-item list-group-item-action" onclick="getArticle(1)">关于我们</button>
@@ -220,7 +239,7 @@
             </div>
             </div>
             
-            <div class="col-lg-5 col-md-5">
+            <div class="col-lg-5 col-md-5 col-sm-4">
             <form>
                 <div class="form-group">
                 <label for="title">Title</label>
@@ -231,19 +250,16 @@
               <div class="form-group">
                 <label for="content">Content</label>
                 <textarea class="form-control" id="content" rows="30">
-
-                    <tab><b>学校主页</b><br>http://www.wpi.edu<tbr><b>WPI校园地图</b><br>http://www.wpi.edu/about/visitors/campusmap.html<tbr><b>学年日历</b><br>http://www.wpi.edu/calendars/index.html<tbr><b>MyWPI</b></tab>
-
                               
                   </textarea>
               </div>
                 
-                <div class="col-lg-6 ">
+                <div class="col-lg-6 col-md-3">
                     <button onclick="post(event)" class="btn btn-basic"> &nbsp &nbsp &nbsp Try &nbsp &nbsp &nbsp   </button>
                 </div>
 
                 <div class="text-right col-lg-6"> 
-                    <button type="submit" class="btn-primary btn">&nbsp&nbsp&nbsp Log in &nbsp&nbsp&nbsp</button>
+                    <button type="submit" class="btn-primary btn">&nbsp&nbsp&nbsp Submit to server &nbsp&nbsp&nbsp</button>
                 </div>
                 
             </form>
@@ -252,7 +268,7 @@
             </div>
             
              
-            <div class="col-lg-5 col-md-5">
+            <div class="col-lg-5 col-md-3 col-sm-4">
                 <div class="cellphone scorllabe-list" id="simulator">
                     <b>学校主页</b>
                     <br>http://www.wpi.edu
