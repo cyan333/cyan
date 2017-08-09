@@ -27,7 +27,7 @@
 
     function getArticle(id) {
       $.ajax({
-        url: 'http://fmning.com:8080/WebApp/get_sg?menuId=' + id,
+        url: 'https://wcservice.fmning.com/get_sg?menuId=' + id,
         type: 'GET',
         async: true,
         success: function(data) {
@@ -47,6 +47,7 @@
     }
 
     function submitArticle(event) {
+    document.getElementById("simulator").innerHTML = generateSimulationString();
       //alert(document.getElementById("idHolder").innerHTML);
       var params = "{\"menuId\":";
       params += document.getElementById("idHolder").innerHTML;
@@ -57,7 +58,7 @@
       params += "\"}";
       //var params = "{\"menuId\":1,\"title\": \"test title\",\"content\": \"test content\"}"
       $.ajax({
-        url: 'http://fmning.com:8080/WebApp/add_sg',
+        url: 'https://wcservice.fmning.com/add_sg',
         type: 'POST',
         data: params,
         processData: false,
@@ -87,7 +88,7 @@
         //var r = /(<img.+?\/>)|(<imgtxt.+?<\/imgtxt>)/g;
       var imgRegular = /(<img.+?\/>)/g;
       //var imgEndReplace = /\/>/g;
-      var txtimgRegular = /<txtimg.+?<\/txtimg>/g;
+      var txtimgRegular = /<imgtxt.+?<\/imgtxt>/g;
       var tableRegular = /<tab>\s?.+?\s?<\/tab>/g;
       var txtInImg;
 
@@ -98,7 +99,7 @@
 
       if (imgMatches != null) {
         for (var i = 0; i < imgMatches.length; i++) {
-          output = output.replace(imgRegular, imageDivStart + imgMatches[i] + imageDivEnd);
+          output = output.replace(imgMatches[i], imageDivStart + imgMatches[i] + imageDivEnd);
         }
       }
 
@@ -112,12 +113,12 @@
           var textEndIndex;
           var oldtxtimgMatches = txtimgMatches[i];
           textStartIndex = txtimgMatches[i].indexOf(">");
-          textEndIndex = txtimgMatches[i].indexOf("</txtimg>");
+          textEndIndex = txtimgMatches[i].indexOf("</imgtxt>");
           txtInImg = txtimgMatches[i].substring(textStartIndex + 1, textEndIndex);
 
           //find textimage tab and replace it to <img></img>
           txtimgMatches[i] = txtimgMatches[i].replace(/>.+>/g, "></img>");
-          txtimgMatches[i] = txtimgMatches[i].replace(/txtimg/g, "img");
+          txtimgMatches[i] = txtimgMatches[i].replace(/imgtxt/g, "img");
 
           //replace width to 100%
           txtimgMatches[i] = txtimgMatches[i].replace(/width\s?=\s?".+?"/g, "width=100%");
