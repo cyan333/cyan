@@ -28,12 +28,12 @@ input:hover, input:focus {
 
 /* line 19, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_common.scss */
 .gray_bg {
-  background-color: #0d0f5b;
+  background-color: #e5d2c9;
 }
 
 /* line 22, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_common.scss */
 .section_bg {
-  background-color: #0d0f5b;
+  background-color: #e5d2c9;
 }
 
 /* line 25, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_common.scss */
@@ -129,7 +129,7 @@ a:hover {
 
 /* line 73, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_common.scss */
 h1, h2, h3, h4, h5, h6 {
-  color: #0a0b4d;
+  color: #DDC4B9;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -146,7 +146,7 @@ p {
 h2 {
   font-size: 44px;
   line-height: 28px;
-  color: #0a0b4d;
+  color: #DDC4B9;
   font-weight: 600;
   line-height: 1.222;
 }
@@ -231,7 +231,7 @@ a:focus, .button:focus, button:focus, .btn:focus {
 /* line 142, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_common.scss */
 .section_tittle h2 {
   font-size: 36px;
-  color: #0a0b4d;
+  color: #DDC4B9;
   line-height: 48px;
   font-weight: 400;
   position: relative;
@@ -485,7 +485,7 @@ ul {
 
 /* line 19, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_button.scss */
 .submit_btn:hover {
-  background: #0d0f5b;
+  background: #e5d2c9;
   color: #fff;
 }
 
@@ -506,7 +506,7 @@ ul {
 /* line 37, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_button.scss */
 .btn_1:hover {
   color: #fff !important;
-  background: #0d0f5b !important;
+  background: #e5d2c9 !important;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -2245,7 +2245,7 @@ ul {
   width: 100%;
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
   top: 0;
-  background-color: #0a0b4d;
+  background-color: #DDC4B9;
   height: 88px;
 }
 
@@ -2402,7 +2402,7 @@ ul {
   background-size: contain;
   background-position: right bottom;
   z-index: 2;
-  background-color: #0d0f5b;
+  background-color: #e5d2c9;
 }
 
 @media (max-width: 991px) {
@@ -2587,7 +2587,7 @@ ul {
 /**************** about css start ****************/
 /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_about.scss */
 .about_part {
-  background-color: #0a0b4d;
+  background-color: #DDC4B9;
 }
 
 /* line 4, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_about.scss */
@@ -2700,7 +2700,7 @@ ul {
   height: 72px;
   line-height: 72px;
   font-size: 30px;
-  color: #0d0f5b;
+  color: #e5d2c9;
   display: inline-block;
   border-radius: 50%;
   -webkit-transition: 0.5s;
@@ -2943,7 +2943,7 @@ ul {
 
 /* line 114, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_portfolio_part.scss */
 .project_details ul li a {
-  color: #0a0b4d;
+  color: #DDC4B9;
   font-size: 16px;
   font-weight: 500;
 }
@@ -2951,7 +2951,7 @@ ul {
 /**************** review_part css start ****************/
 /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_review.scss */
 .review_part {
-  background-color: #0d0f5b;
+  background-color: #e5d2c9;
 }
 
 /* line 5, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_review.scss */
@@ -3019,7 +3019,7 @@ ul {
 
 /* line 55, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_review.scss */
 .review_part .review_icon i {
-  color: #0a0b4d;
+  color: #DDC4B9;
 }
 
 /* line 60, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_review.scss */
@@ -4593,7 +4593,7 @@ h6 {
 
 /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_footer.scss */
 .footer_Part {
-  background-color: #0a0b4d;
+  background-color: #DDC4B9;
   position: relative;
   z-index: 1;
 }
@@ -4726,7 +4726,7 @@ h6 {
   position: relative;
   z-index: 1;
   padding: 0;
-  background-color: #0d0f5b;
+  background-color: #e5d2c9;
 }
 
 /* line 7, /Applications/MAMP/htdocs/palash/cl/july 2019/july/195 Resume/195 resume html/sass/_breadcrumb.scss */
