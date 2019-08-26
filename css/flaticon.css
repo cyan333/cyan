@@ -31,3 +31,9 @@
 .flaticon-layers:before { content: "\f100"; }
 .flaticon-design:before { content: "\f101"; }
 .flaticon-speaker:before { content: "\f102"; }
+.flaticon-bluetooth:before {
+  content: "\f11d";
+}
+.flaticon-battery-8:before {
+  content: "\f119";
+}
