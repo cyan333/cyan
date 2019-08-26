@@ -1,16 +1,16 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 23/07/2019 12:47
+  	Creation date: 26/08/2019 03:12
   	*/
 
 @font-face {
   font-family: "Flaticon";
-  src: url("../fonts/Flaticon.eot");
-  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
-       url("../fonts/Flaticon.woff2") format("woff2"),
-       url("../fonts/Flaticon.woff") format("woff"),
-       url("../fonts/Flaticon.ttf") format("truetype"),
-       url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -25,15 +25,15 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-  font-style: normal;
+        font-size: 35px;
+font-style: normal;
 }
 
-.flaticon-layers:before { content: "\f100"; }
-.flaticon-design:before { content: "\f101"; }
-.flaticon-speaker:before { content: "\f102"; }
-.flaticon-bluetooth:before {
-  content: "\f11d";
-}
-.flaticon-battery-8:before {
-  content: "\f119";
-}
+.flaticon-ui-1:before { content: "\f100"; }
+.flaticon-circuit-1:before { content: "\f101"; }
+.flaticon-circuit-2:before { content: "\f102"; }
+.flaticon-microchip:before { content: "\f103"; }
+.flaticon-circuit-3:before { content: "\f104"; }
+.flaticon-circuit-4:before { content: "\f105"; }
+.flaticon-circuit-5:before { content: "\f106"; }
+.flaticon-electric:before { content: "\f107"; }
