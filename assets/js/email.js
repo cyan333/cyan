@@ -21,7 +21,7 @@ function sendEmail(){
 		success: function (data) {
 			$('#name').val('');
 			$('#email').val('');
-			$('#contentField').val('');
+			$('#message').val('');
 			alert('Sent');
 			$('#submitBtn').prop('disabled', false);
 			return false;
