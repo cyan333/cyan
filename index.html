@@ -223,7 +223,7 @@
 						<div class="inner">
 							<h2 class="major">Get in touch</h2>
 							<p>Actively looking for summer internship</p>
-							<form method="post" action="#">
+							<form role="form" onsubmit="return sendEmail();">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>
@@ -239,7 +239,7 @@
 									</div>
 								</div>
 								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
+									<li><input id="submitBtn" type="submit" value="Send Message" /></li>
 								</ul>
 							</form>
 							<ul class="contact">
@@ -270,6 +270,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/email.js"></script>
 
 	</body>
 </html>
